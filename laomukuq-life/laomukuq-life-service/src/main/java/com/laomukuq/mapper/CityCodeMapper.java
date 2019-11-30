@@ -1,7 +1,7 @@
 package com.laomukuq.mapper;
 
 
-import com.laomukuq.model.CityCode;
+import com.laomukuq.model.weather.CityCode;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

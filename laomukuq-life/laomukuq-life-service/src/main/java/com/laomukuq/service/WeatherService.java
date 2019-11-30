@@ -1,7 +1,7 @@
 package com.laomukuq.service;
 
 import com.laomukuq.mapper.CityCodeMapper;
-import com.laomukuq.model.CityCode;
+import com.laomukuq.model.weather.CityCode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

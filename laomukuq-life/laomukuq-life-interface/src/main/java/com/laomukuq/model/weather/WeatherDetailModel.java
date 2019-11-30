@@ -1,7 +1,4 @@
-package com.laomukuq.model;
-
-import com.alibaba.fastjson.JSONArray;
-import com.alibaba.fastjson.JSONObject;
+package com.laomukuq.model.weather;
 
 import java.util.List;
 

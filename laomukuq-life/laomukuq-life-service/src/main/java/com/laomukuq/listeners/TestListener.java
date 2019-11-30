@@ -3,17 +3,14 @@ package com.laomukuq.listeners;
 import cc.moecraft.icq.PicqBotX;
 import cc.moecraft.icq.event.EventHandler;
 import cc.moecraft.icq.event.IcqListener;
-import cc.moecraft.icq.event.events.message.EventDiscussMessage;
 import cc.moecraft.icq.event.events.message.EventGroupMessage;
-import cc.moecraft.icq.event.events.message.EventPrivateMessage;
 import cc.moecraft.icq.sender.message.MessageBuilder;
 import cc.moecraft.icq.sender.returndata.ReturnListData;
 import cc.moecraft.icq.sender.returndata.returnpojo.get.RGroup;
 import com.alibaba.fastjson.JSONObject;
 import com.laomukuq.entity.HttpResponseEntity;
-import com.laomukuq.model.WeatherModel;
+import com.laomukuq.model.weather.WeatherModel;
 import com.laomukuq.utils.HttpClientUtils;
-
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -99,17 +96,6 @@ public class TestListener extends IcqListener
                     //图片组件需会员 .add(new ComponentImage("C:\\Users\\Administrator\\Desktop\\aaaa.gif")).newLine()
                     .toString());
         }
-        }
-    }
-
-    @EventHandler
-    public void onEGMessage(EventGroupMessage event){
-        if (event.getMessage().equals("老冯鶸")
-                || event.getMessage().contains("老冯")
-                || event.getMessage().contains("冯")
-                || event.getMessage().contains("鶸"))
-        {
-            event.respond("鶸老冯");
         }
     }
 

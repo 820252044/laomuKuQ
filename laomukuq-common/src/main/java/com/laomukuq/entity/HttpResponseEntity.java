@@ -30,4 +30,5 @@ public class HttpResponseEntity {
     public void setResponseEntity(JSONObject responseEntity) {
         this.responseEntity = responseEntity;
     }
+
 }

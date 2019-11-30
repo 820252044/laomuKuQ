@@ -1,4 +1,4 @@
-package com.laomukuq.model;
+package com.laomukuq.model.weather;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

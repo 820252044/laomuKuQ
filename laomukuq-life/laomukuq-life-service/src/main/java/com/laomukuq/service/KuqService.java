@@ -2,8 +2,7 @@ package com.laomukuq.service;
 
 import cc.moecraft.icq.PicqBotX;
 import cc.moecraft.icq.PicqConfig;
-
-import com.laomukuq.listeners.TestFilter;
+import com.laomukuq.listeners.NewsListener;
 import com.laomukuq.listeners.TestListener;
 
 public class KuqService {
@@ -17,7 +16,7 @@ public class KuqService {
         // 注册事件监听器, 可以注册多个监听器
         bot.getEventManager().registerListeners(
                 new TestListener(),
-                new TestFilter()
+                new NewsListener()
         );
 
 

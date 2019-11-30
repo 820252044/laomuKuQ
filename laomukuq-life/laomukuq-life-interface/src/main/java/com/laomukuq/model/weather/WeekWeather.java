@@ -1,4 +1,4 @@
-package com.laomukuq.model;
+package com.laomukuq.model.weather;
 
 public class WeekWeather {
 
