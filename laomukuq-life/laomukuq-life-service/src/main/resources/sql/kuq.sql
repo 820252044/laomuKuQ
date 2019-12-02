@@ -494,6 +494,7 @@ CREATE TABLE `news`  (
 -- ----------------------------
 -- Records of news
 -- ----------------------------
+
 INSERT INTO `news` VALUES (1, '头条', 'top');
 INSERT INTO `news` VALUES (2, '社会', 'shehui');
 INSERT INTO `news` VALUES (3, '国内', 'guonei');
