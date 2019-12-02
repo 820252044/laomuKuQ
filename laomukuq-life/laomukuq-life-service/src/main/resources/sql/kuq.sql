@@ -479,6 +479,7 @@ INSERT INTO `city_code` VALUES (445, '盘锦', 101071301);
 INSERT INTO `city_code` VALUES (446, '大连', 101070201);
 INSERT INTO `city_code` VALUES (447, '锦州', 101070701);
 
+
 -- ----------------------------
 -- Table structure for news
 -- ----------------------------
