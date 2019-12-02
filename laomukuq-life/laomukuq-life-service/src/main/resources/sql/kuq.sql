@@ -1,17 +1,17 @@
 /*
  Navicat Premium Data Transfer
 
- Source Server         : localmu
+ Source Server         : laomukuq
  Source Server Type    : MySQL
- Source Server Version : 50727
+ Source Server Version : 50728
  Source Host           : localhost:3306
  Source Schema         : kuq
 
  Target Server Type    : MySQL
- Target Server Version : 50727
+ Target Server Version : 50728
  File Encoding         : 65001
 
- Date: 30/11/2019 15:42:21
+ Date: 02/12/2019 19:20:29
 */
 
 SET NAMES utf8mb4;
@@ -479,10 +479,29 @@ INSERT INTO `city_code` VALUES (445, '盘锦', 101071301);
 INSERT INTO `city_code` VALUES (446, '大连', 101070201);
 INSERT INTO `city_code` VALUES (447, '锦州', 101070701);
 
+-- ----------------------------
+-- Table structure for news
+-- ----------------------------
+DROP TABLE IF EXISTS `news`;
+CREATE TABLE `news`  (
+  `id` int(3) NOT NULL AUTO_INCREMENT,
+  `news_name` varchar(10) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `news_type` varchar(15) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of news
+-- ----------------------------
+INSERT INTO `news` VALUES (1, '头条', 'top');
+INSERT INTO `news` VALUES (2, '社会', 'shehui');
+INSERT INTO `news` VALUES (3, '国内', 'guonei');
+INSERT INTO `news` VALUES (4, '国际', 'guoji');
+INSERT INTO `news` VALUES (5, '娱乐', 'yule');
+INSERT INTO `news` VALUES (6, '体育', 'tiyu');
+INSERT INTO `news` VALUES (7, '军事', 'junshi');
+INSERT INTO `news` VALUES (8, '科技', 'keji');
+INSERT INTO `news` VALUES (9, '财经', 'caijing');
+INSERT INTO `news` VALUES (10, '时尚', 'shishang');
+
 SET FOREIGN_KEY_CHECKS = 1;
-
-
-
-
-
-
