@@ -4,20 +4,25 @@
   <resultMap id="BaseResultMap" type="com.laomukuq.model.news.NewsCode">
     <!--@mbg.generated-->
     <!--@Table news-->
-    <id column="id" jdbcType="INTEGER" property="id" />
-    <result column="news_name" jdbcType="VARCHAR" property="newsName" />
-    <result column="news_type" jdbcType="VARCHAR" property="newsType" />
+    <id column="id" jdbcType="INTEGER" property="id" javaType="int"/>
+    <result column="news_name" jdbcType="VARCHAR" property="newsName" javaType="string"/>
+    <result column="news_type" jdbcType="VARCHAR" property="newsType" javaType="string"/>
   </resultMap>
   <sql id="Base_Column_List">
     <!--@mbg.generated-->
     id, news_name, news_type
   </sql>
+
   <select id="selectByName" parameterType="java.lang.String" resultMap="BaseResultMap">
     <!--@mbg.generated-->
-    select 
+    select
     <include refid="Base_Column_List" />
     from news
-    where news_name = #{newsName}
+    <where>
+      <if test ="newsName != null">
+        news_name = #{newsName,jdbcType=VARCHAR}
+      </if>
+    </where>
   </select>
 
 </mapper>

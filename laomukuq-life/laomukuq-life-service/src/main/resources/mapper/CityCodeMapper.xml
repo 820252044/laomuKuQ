@@ -75,4 +75,14 @@
     <include refid="Base_Column_List" />
     from city_code
   </select>
+  <select id="selectByName" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from city_code
+    <where>
+      <if test="cityName != null">
+        city_name = #{cityName,jdbcType=VARCHAR}
+      </if>
+    </where>
+  </select>
 </mapper>

@@ -4,7 +4,14 @@ import cc.moecraft.icq.PicqBotX;
 import cc.moecraft.icq.PicqConfig;
 import com.laomukuq.listeners.NewsListener;
 import com.laomukuq.listeners.TestListener;
+import org.springframework.stereotype.Component;
 
+/**
+ * @author laomu
+ * @date 2019-12-07
+ * @version 1.0
+ */
+@Component
 public class KuqService {
     public static void main(String[] args) {
         // 创建机器人对象 ( 传入配置 )
@@ -18,7 +25,6 @@ public class KuqService {
                 new TestListener(),
                 new NewsListener()
         );
-
 
         // 启用指令管理器
         // 这些字符串是指令前缀, 比如指令"!help"的前缀就是"!"

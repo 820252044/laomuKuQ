@@ -4,7 +4,7 @@ spring:
   application:
     name: life-service
   datasource:
-    url: jdbc:mysql://localhost:3306/kuq
+    url: jdbc:mysql://localhost:3306/kuq?useUnicode=true&characterEncoding=UTF-8
     username: root
     password: root
     hikari:
@@ -20,6 +20,8 @@ eureka:
 mybatis:
   mapper-locations: classpath:mapper/*.xml
 # 新闻接口配置文件
-
 news:
   key: Vb7D+4YwGN3+jJmK+48yT2zFOwTgsJeZ/px16A
+logging:
+  level:
+    com.laomukuq.mapper: debug

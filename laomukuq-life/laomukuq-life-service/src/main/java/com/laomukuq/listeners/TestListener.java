@@ -9,6 +9,7 @@ import cc.moecraft.icq.sender.returndata.ReturnListData;
 import cc.moecraft.icq.sender.returndata.returnpojo.get.RGroup;
 import com.alibaba.fastjson.JSONObject;
 import com.laomukuq.entity.HttpResponseEntity;
+import com.laomukuq.model.weather.CityCode;
 import com.laomukuq.model.weather.WeatherModel;
 import com.laomukuq.utils.HttpClientUtils;
 
@@ -37,8 +38,11 @@ public class TestListener extends IcqListener
             message = message.substring(0, message.length() - 2);
             String encode = URLEncoder.encode(message, "UTF-8");
             HttpResponseEntity httpResponseEntity = HttpClientUtils.get("http://127.0.0.1:8081/weather?city=" + encode);
+
             if(httpResponseEntity.getResponseEntity() != null){
-            HttpResponseEntity responseEntity = HttpClientUtils.get("http://t.weather.sojson.com/api/weather/city/" + httpResponseEntity.getResponseEntity().get(message));
+            // 转换为CityCode
+            CityCode cityCode = JSONObject.parseObject(httpResponseEntity.getResponseEntity().toJSONString(), CityCode.class);
+            HttpResponseEntity responseEntity = HttpClientUtils.get("http://t.weather.sojson.com/api/weather/city/" + cityCode.getCityCode());
             JSONObject weatherEntity = responseEntity.getResponseEntity();
             WeatherModel weatherModel = JSONObject.parseObject(weatherEntity.toJSONString(), WeatherModel.class);
             String content = "-----------------\n" +
@@ -80,9 +84,9 @@ public class TestListener extends IcqListener
             event.respond(content);
         }
 
-        if (event.getMessage().equals("测试给小桂发Hi"))
+        if (event.getMessage().contains("和宝宝说"))
         {
-            event.getHttpApi().sendPrivateMsg(871674895, "hi");
+            event.getHttpApi().sendPrivateMsg(350970980, event.getMessage().split(":")[1]);
         }
 
         if (event.getMessage().equals("测试回复数据"))

@@ -10,17 +10,24 @@ import com.laomukuq.model.news.News;
 import com.laomukuq.model.news.NewsCode;
 import com.laomukuq.model.news.NewsResponseModel;
 import com.laomukuq.utils.HttpClientUtils;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.List;
 
 /**
+ * @author laomu
+ * @date 2019-12-07
+ * @version 1.0
  * 新闻监听
  */
+@Component
 public class NewsListener extends IcqListener {
 
-
+    @Value("${news.key}")
+    private String newsKey;
     /**
      * 私聊新闻
      *
@@ -47,10 +54,11 @@ public class NewsListener extends IcqListener {
                 StringBuffer content = new StringBuffer();
                 for (int i = 0; i < 5; i++) {
                     content.append(news.get(i).getTitle() + "\n");
+                    content.append(news.get(i).getUrl() + "\n");
                 }
                 event.respond(content.toString());
             } else {
-                event.respond("你写的啥啊,没找着!");
+                event.respond("没有相关的新闻类型");
             }
         }
     }

@@ -8,7 +8,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-// Spring框架提供了
+/**
+ * @author laomu
+ * @date 2019-12-07
+ * @version 1.0
+ */
 @Controller
 @RequestMapping("/news")
 public class NewsController {
@@ -19,10 +23,6 @@ public class NewsController {
     @GetMapping
     @ResponseBody
     public NewsCode get(String newsName){
-        NewsCode newsCode = this.newsService.selectByName(newsName);
-        System.out.println(newsCode);
-        return newsCode;
+        return this.newsService.selectByName(newsName);
     }
-
-
 }
