@@ -47,7 +47,7 @@ public class NewsListener extends IcqListener {
                     event.respond("没有相关的新闻类型");
                     return;
                 }
-                HttpResponseEntity httpResponseEntity = HttpClientUtils.get("http://zhouxunwang.cn/data/?id=" + newsKey + "&type=" + newsCode.getNewsType());
+                HttpResponseEntity httpResponseEntity = HttpClientUtils.get("http://zhouxunwang.cn/data/?id=75&key=" + newsKey + "&type=" + newsCode.getNewsType());
                 // 把普通对象转换为json对象
                 // 把普通对象转换为json字符串
                 // 把json字符串转换为json对象
