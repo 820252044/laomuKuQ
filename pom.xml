@@ -13,6 +13,7 @@
         <module>laomukuq-life</module>
         <module>laomukuq-common</module>
         <module>laomukuq-mail</module>
+        <module>laomukuq-bot</module>
     </modules>
     <packaging>pom</packaging>
 

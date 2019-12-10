@@ -12,15 +12,19 @@ import com.laomukuq.entity.HttpResponseEntity;
 import com.laomukuq.model.weather.CityCode;
 import com.laomukuq.model.weather.WeatherModel;
 import com.laomukuq.utils.HttpClientUtils;
+import org.springframework.stereotype.Component;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.text.SimpleDateFormat;
 
 /**
- *
  * @author laomu
+ * @version 1.0
+ * @description 监听
+ * @date 2019-12-10
  */
+@Component
 public class TestListener extends IcqListener
 {
     @EventHandler

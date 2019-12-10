@@ -2,10 +2,15 @@ package com.laomukuq.listeners;
 
 import cc.moecraft.icq.event.EventHandler;
 import cc.moecraft.icq.event.IcqListener;
+import org.springframework.stereotype.Component;
 
 /**
- * 身份证查询
+ * @author laomu
+ * @version 1.0
+ * @description 身份证查询
+ * @date 2019-12-10
  */
+@Component
 public class IdCodeListener extends IcqListener {
 
     @EventHandler

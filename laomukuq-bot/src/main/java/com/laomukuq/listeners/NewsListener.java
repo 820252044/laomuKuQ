@@ -40,10 +40,14 @@ public class NewsListener extends IcqListener {
         if (message.length() < 8 && message.contains("新闻")) {
             message = message.substring(0, message.length() - 2);
             String encode = URLEncoder.encode(message, "UTF-8");
-            HttpResponseEntity newResponseEntity = HttpClientUtils.get("http://127.0.0.1:8081/news?newsName=" + encode);
+            HttpResponseEntity newResponseEntity = HttpClientUtils.get("http://127.0.0.1:9001/news?newsName=" + encode);
             if (newResponseEntity.getResponseEntity() != null) {
                 NewsCode newsCode = JSONObject.parseObject(newResponseEntity.getResponseEntity().toJSONString(), NewsCode.class);
-                HttpResponseEntity httpResponseEntity = HttpClientUtils.get("http://zhouxunwang.cn/data/?id=75&key=Vb7D+4YwGN3+jJmK+48yT2zFOwTgsJeZ/px16A&type=" + newsCode.getNewsType());
+                if(newsCode.getNewsType() == null){
+                    event.respond("没有相关的新闻类型");
+                    return;
+                }
+                HttpResponseEntity httpResponseEntity = HttpClientUtils.get("http://zhouxunwang.cn/data/?id=" + newsKey + "&type=" + newsCode.getNewsType());
                 // 把普通对象转换为json对象
                 // 把普通对象转换为json字符串
                 // 把json字符串转换为json对象
@@ -51,10 +55,10 @@ public class NewsListener extends IcqListener {
 
                 List<News> news = JSONObject.parseArray(JSON.toJSONString(newsResponseModel.getResult().get("data")), News.class);
 
-                StringBuffer content = new StringBuffer();
+                StringBuilder content = new StringBuilder();
                 for (int i = 0; i < 5; i++) {
-                    content.append(news.get(i).getTitle() + "\n");
-                    content.append(news.get(i).getUrl() + "\n");
+                    content.append(news.get(i).getTitle()).append("\n");
+                    content.append(news.get(i).getUrl()).append("\n");
                 }
                 event.respond(content.toString());
             } else {

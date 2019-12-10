@@ -1,0 +1,28 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: bot-service
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:10086/eureka
+  instance:
+    lease-renewal-interval-in-seconds: 5 # 5秒钟发送一次心跳
+    lease-expiration-duration-in-seconds: 10 # 10秒不发送就过期
+# 新闻接口配置文件
+news:
+  key: Vb7D+4YwGN3+jJmK+48yT2zFOwTgsJeZ/px16A
+# 机器人集群得配置 可以配置多个 配置详情详见LaomuBot
+laomubot:
+  laomuBots:
+    - postPort: 31091
+      socketPort: 31092
+      botName: bot1
+      ipAddr: 127.0.0.1
+      debug: true
+      useAsyncCommands: true
+  # - postPort: 31090
+  #   botName: bot2
+  #   ipAddr: 127.0.0.1
+

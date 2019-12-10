@@ -1,5 +1,5 @@
 server:
-  port: 8081
+  port: 9001
 spring:
   application:
     name: life-service
@@ -19,9 +19,6 @@ eureka:
     lease-expiration-duration-in-seconds: 10 # 10秒不发送就过期
 mybatis:
   mapper-locations: classpath:mapper/*.xml
-# 新闻接口配置文件
-news:
-  key: Vb7D+4YwGN3+jJmK+48yT2zFOwTgsJeZ/px16A
 logging:
   level:
     com.laomukuq.mapper: debug
