@@ -13,6 +13,10 @@ import org.springframework.stereotype.Component;
 @Component
 public class IdCodeListener extends IcqListener {
 
+    public IdCodeListener() {
+        System.out.println("IdCodeListener 被加载。。。");
+    }
+
     @EventHandler
     public void idCodeMessage(){
         // 先确定 私聊/群聊/讨论组

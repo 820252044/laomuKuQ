@@ -30,13 +30,6 @@ public class TestListener extends IcqListener
     @EventHandler
     public void onPMEvent(EventGroupMessage event) throws UnsupportedEncodingException {
         String message = event.getMessage();
-        // System.out.println("接到消息");
-
-        // 纯属测试没有嘲讽意思啦...
-        if (event.getMessage().contains("老冯鶸"))
-        {
-            event.respond("%prefix%!老冯鶸");
-        }
 
         if(message.length() < 7 && message.contains("天气")){
             message = message.substring(0, message.length() - 2);
@@ -60,7 +53,8 @@ public class TestListener extends IcqListener
                              "|"+ "温度:" + weatherModel.getData().getWendu()+ "℃" + "|\n" +
                              "|"+ "感冒情况:" + weatherModel.getData().getGanmao()+"|\n";
 
-
+            // 由于数据量过大 不予展示
+            // 一周的
             /*for (WeekWeather weekWeather : weatherModel.getData().getForecast()) {
                  content += "|"+ "日期:" + weekWeather.getYmd() +"|\n" +
                             "|"+ "" + weekWeather.getHigh()+"|\n" +
@@ -74,6 +68,7 @@ public class TestListener extends IcqListener
                             "|"+ "天气类型:" + weekWeather.getType()+"|\n";
             }*/
 
+            // 昨天的
              /*content += "|"+ "日期:" + weatherModel.getData().getYesterday().getYmd() +"|\n" +
                         "|"+ "" + weatherModel.getData().getYesterday().getHigh()+"|\n" +
                         "|"+ "" + weatherModel.getData().getYesterday().getLow()+"|\n" +

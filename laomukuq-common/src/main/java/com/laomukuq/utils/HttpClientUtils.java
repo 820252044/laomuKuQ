@@ -13,6 +13,12 @@ import org.apache.http.util.EntityUtils;
 
 import java.io.IOException;
 
+/**
+ * @author laomu
+ * @version 1.0
+ * @description Http工具类
+ * @date 2019-12-10
+ */
 public class HttpClientUtils {
 
     /**

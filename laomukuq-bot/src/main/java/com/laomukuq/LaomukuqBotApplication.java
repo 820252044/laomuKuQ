@@ -23,16 +23,12 @@ public class LaomukuqBotApplication {
     private BuildBot buildBot;
     public static void main(String[] args) {
         SpringApplication.run(LaomukuqBotApplication.class, args);
-        // 因为机器人微服务开启的是机器人得端口  不需要SpringBoot开启端口 所以以非web方式启动 只加载容器即可
-        /*new SpringApplicationBuilder()
-                .web(WebApplicationType.NONE)
-                .sources(LaomukuqBotApplication.class)
-                .run(args);*/
+
     }
 
     @Bean
-    public List<PicqBotX> getPicqBotXList(){
-        return buildBot.getPicqBotXList();
+    public List<PicqBotX> getpicqBotXs(){
+        return buildBot.getpicqBotXs();
     }
 
     @Bean

@@ -1,4 +1,4 @@
-package com.laomukuq.listeners;
+package com.laomukuq.filters;
 
 import cc.moecraft.icq.event.EventHandler;
 import cc.moecraft.icq.event.IcqListener;
