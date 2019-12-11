@@ -5,7 +5,7 @@ import cc.moecraft.icq.PicqConfig;
 import cc.moecraft.icq.command.interfaces.IcqCommand;
 import cc.moecraft.icq.event.IcqListener;
 import com.laomukuq.entity.LaomuBot;
-import com.laomukuq.properties.BotAccountProperties;
+import com.laomukuq.configuration.BotAccountProperties;
 import com.laomukuq.utils.ClassUtils;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
@@ -37,10 +37,13 @@ public class BuildBot {
     @Autowired
     private ApplicationContext applicationContext;
 
+    //监听器类
     IcqListener listeners[];
 
+    // 指令类
     IcqCommand commands[];
 
+    // 过滤器类
     IcqListener filters[];
 
     private Logger logger = LoggerFactory.getLogger(BuildBot.class);
@@ -88,6 +91,7 @@ public class BuildBot {
         executorService = Executors.newFixedThreadPool(picqBotXs.size());
     }
 
+    @SuppressWarnings("unchecked")
     private void buildListeners() {
         // 根据listeners包下得类进行初始化
         Set<Class<?>> classes = ClassUtils.getClasses("com.laomukuq.listeners");
@@ -105,6 +109,7 @@ public class BuildBot {
         }
     }
 
+    @SuppressWarnings("unchecked")
     private void buildFilters() {
         // 根据filters包下得类进行初始化
         Set<Class<?>> classes = ClassUtils.getClasses("com.laomukuq.filters");
@@ -126,11 +131,12 @@ public class BuildBot {
         // 启用指令管理器
         // 这些字符串是指令前缀, 比如指令"!help"的前缀就是"!"
         for (PicqBotX bot : picqBotXs) {
-            // bot.enableCommandManager("bot -", "!", "/", "~");
+            bot.enableCommandManager("-", "!", "/", "~");
         }
 
     }
 
+    @SuppressWarnings("unchecked")
     private void buildCommands(){
         // 根据commonds包下得类进行初始化
         Set<Class<?>> classes = ClassUtils.getClasses("com.laomukuq.commonds");
@@ -142,7 +148,6 @@ public class BuildBot {
             // 从Spring获取类添加到数组
             commands[index++] = applicationContext.getBean(commandClass);
         }
-
         for (PicqBotX bot : picqBotXs) {
             bot.getCommandManager().registerCommands(commands);
         }
@@ -156,12 +161,4 @@ public class BuildBot {
         return executorService;
     }
 
-
-
-    public static void main(String[] args) {
-        Set<Class<?>> classSet =  ClassUtils.getClasses("com.laomukuq.listeners");
-        for (Class<?> class1 : classSet) {
-            System.out.println(class1.getSimpleName());
-        }
-    }
 }

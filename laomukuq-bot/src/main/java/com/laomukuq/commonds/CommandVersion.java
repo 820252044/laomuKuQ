@@ -3,10 +3,13 @@ package com.laomukuq.commonds;
 import cc.moecraft.icq.command.CommandProperties;
 import cc.moecraft.icq.command.interfaces.EverywhereCommand;
 import cc.moecraft.icq.event.events.message.EventMessage;
+import cc.moecraft.icq.sender.returndata.returnpojo.get.RVersionInfo;
 import cc.moecraft.icq.user.User;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 
+@Component
 public class CommandVersion implements EverywhereCommand // 实现EverywhereCommand就是无论私聊群聊还是讨论组都能收到的指令
 {
     // 指令属性
@@ -23,7 +26,7 @@ public class CommandVersion implements EverywhereCommand // 实现EverywhereComm
     public String run(EventMessage event, User sender, String command, ArrayList<String> args)
     {
         // 处理, 返回值会自动回复回去
-        // 这里因为这个指令是用来查版本的, 所以直接返回字符串了
-        return "TestBot - PicqBotX v4.12.0.991.PRE";
+        RVersionInfo data = event.getHttpApi().getVersionInfo().getData();
+        return "酷Q类型："+data.getCoolqEdition()+"插件版本："+data.getPluginVersion()+"运行状态："+event.getHttpApi().getVersionInfo().getStatus();
     }
 }

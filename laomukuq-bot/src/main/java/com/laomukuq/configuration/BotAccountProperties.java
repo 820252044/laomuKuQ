@@ -1,4 +1,4 @@
-package com.laomukuq.properties;
+package com.laomukuq.configuration;
 
 import com.laomukuq.entity.LaomuBot;
 import org.springframework.boot.context.properties.ConfigurationProperties;

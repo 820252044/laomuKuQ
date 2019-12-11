@@ -3,6 +3,18 @@ server:
 spring:
   application:
     name: bot-service
+  # redis配置，以下有默认配置的也可以使用默认配置
+  redis:
+    database: 1
+    host: 127.0.0.1
+    port: 6379
+    password: 123456
+    pool:
+      max-active: 8
+      max-wait: 1
+      max-idle: 8
+      min-idle: 0
+    timeout: 5000
 eureka:
   client:
     service-url:

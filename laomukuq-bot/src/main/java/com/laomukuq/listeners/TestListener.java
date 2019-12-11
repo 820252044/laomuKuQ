@@ -25,8 +25,7 @@ import java.text.SimpleDateFormat;
  * @date 2019-12-10
  */
 @Component
-public class TestListener extends IcqListener
-{
+public class TestListener extends IcqListener {
     @EventHandler
     public void onPMEvent(EventGroupMessage event) throws UnsupportedEncodingException {
         String message = event.getMessage();

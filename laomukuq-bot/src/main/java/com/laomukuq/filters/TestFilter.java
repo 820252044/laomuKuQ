@@ -3,6 +3,7 @@ package com.laomukuq.filters;
 import cc.moecraft.icq.event.EventHandler;
 import cc.moecraft.icq.event.IcqListener;
 import cc.moecraft.icq.event.events.local.EventLocalSendMessage;
+import org.springframework.stereotype.Component;
 
 
 /**
@@ -11,6 +12,7 @@ import cc.moecraft.icq.event.events.local.EventLocalSendMessage;
  * @description 过滤器
  * @date 2019-12-10
  */
+@Component
 public class TestFilter extends IcqListener {
     @EventHandler
     public void onAllLocalMessageEvent(EventLocalSendMessage event) // 监听所有发送消息的事件
